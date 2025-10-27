@@ -4,7 +4,7 @@ import Hero from './Hero.js'
 import Stats from './Stats.js'
 import Pricing from './Pricing.js'
 import Education from './Education.js'
-import Openaccount from '../Openaccount.js'
+import Openaccount from '../OpenAccount.js'
 
 const HomePage = () => {
   return (
