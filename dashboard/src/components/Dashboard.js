@@ -8,7 +8,7 @@ import Holdings from "./Holdings";
 import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
-import WatchList from "./WatchList";
+import WatchList from "./WatchList.js";
 
 const Dashboard = () => {
   return (
