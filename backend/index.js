@@ -3,7 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+const authRoute = require('./route/AuthRoute.js');
 
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
@@ -14,7 +16,15 @@ const url = process.env.MONGO_URL;
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(express.json({strict: true}));
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is running!' });
+});
+
+
+app.use('/auth', authRoute);
 
 // app.get('/addHoldings', async (req, res) => {
 //     let tempHoldings = [
@@ -196,8 +206,17 @@ app.get('/allPositions', async (req, res) => {
   res.json(allPositions);
 });
 
-app.listen(PORT, () => {
-  console.log("app started!");
-  mongoose.connect(url);
-  console.log("DB connected!");
+mongoose.connect(url, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 10000 // 10s timeout
+})
+.then(() => {
+  console.log("✅ DB connected!");
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+})
+.catch((err) => {
+  console.error("❌ MongoDB connection error:", err);
 });
