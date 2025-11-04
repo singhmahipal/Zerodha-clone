@@ -23,7 +23,7 @@ root.render(
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/signup' element={<Signup />} />
-      <Route path='/login' element={<Login />} /> {/* added */}
+      <Route path='/login' element={<Login />} />
       <Route path='/about' element={<AboutPage />} />
       <Route path='/support' element={<SupportPage />} />
       <Route path='/pricing' element={<PricingPage />} />
@@ -31,6 +31,6 @@ root.render(
       <Route path='*' element={<NotFound />} />
     </Routes>
     <Footer />
-    <ToastContainer /> {/* optional, for showing notifications */}
+    <ToastContainer />
   </BrowserRouter>
 );
