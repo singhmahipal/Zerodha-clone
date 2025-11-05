@@ -15,11 +15,10 @@ const url = process.env.MONGO_URL;
 
 const app = express();
 
-// FIXED: Proper CORS configuration with credentials
 app.use(cors({
-    origin: 'http://localhost:3000', // Your frontend URL
+    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL], 
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 

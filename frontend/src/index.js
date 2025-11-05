@@ -1,7 +1,10 @@
+// frontend/src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
+
+import { AuthProvider } from './context/AuthContext';
 
 import HomePage from './landing_page/home/HomePage.js';
 import Signup from './landing_page/signup/Signup.js';
@@ -19,18 +22,20 @@ import { ToastContainer } from 'react-toastify';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/signup' element={<Signup />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/about' element={<AboutPage />} />
-      <Route path='/support' element={<SupportPage />} />
-      <Route path='/pricing' element={<PricingPage />} />
-      <Route path='/products' element={<ProductPage />} />
-      <Route path='*' element={<NotFound />} />
-    </Routes>
-    <Footer />
-    <ToastContainer />
+    <AuthProvider>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/support' element={<SupportPage />} />
+        <Route path='/pricing' element={<PricingPage />} />
+        <Route path='/products' element={<ProductPage />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <Footer />
+      <ToastContainer />
+    </AuthProvider>
   </BrowserRouter>
 );

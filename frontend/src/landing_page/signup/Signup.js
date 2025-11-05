@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "./Signup.css";
 
 const Signup = () => {
   const [form, setForm] = useState({ email: "", username: "", password: "" });
   const [message, setMessage] = useState("");
-  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const { signup, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.location.href = `${process.env.DASHBOARD_URL}`; // Dashboard URL
+    }
+  }, [isAuthenticated]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,77 +24,67 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data:", form); // Debug log
+    setIsLoading(true);
+    setMessage("");
     
-    try {
-      const res = await axios.post(
-        "http://localhost:8080/auth/signup",
-        form,
-        { withCredentials: true }
-      );
-      
-      console.log("Response:", res.data); // Debug log
-      setMessage(res.data.message);
-
-      if (res.data.success) {
-        setUser(res.data.user.username);
-      }
-    } catch (err) {
-      console.error("Full error:", err); // Debug log
-      console.error("Error response:", err.response); // Debug log
-      
-      if (err.response) {
-        // Server responded with error
-        setMessage(err.response.data.message || "Signup failed");
-      } else if (err.request) {
-        // Request made but no response
-        setMessage("Cannot connect to server. Is it running on port 8080?");
-      } else {
-        // Something else went wrong
-        setMessage("Error: " + err.message);
-      }
+    const result = await signup(form.email, form.username, form.password);
+    
+    if (result.success) {
+      setMessage(result.message);
+      // Redirect to dashboard after successful signup
+      setTimeout(() => {
+        window.location.href = `${process.env.DASHBOARD_URL}`; // Dashboard URL
+      }, 1000);
+    } else {
+      setMessage(result.message);
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-box">
-        <h2>{user ? `Welcome, ${user}` : "Signup"}</h2>
-        {!user && (
-          <form onSubmit={handleSubmit}>
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              name="username"
-              placeholder="Username"
-              value={form.username}
-              onChange={handleChange}
-              required
-            />
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={form.password}
-              onChange={handleChange}
-              required
-              minLength="6"
-            />
-            <button type="submit">Sign Up</button>
-          </form>
+        <h2>Signup</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+            disabled={isLoading}
+          />
+          <input
+            name="username"
+            placeholder="Username"
+            value={form.username}
+            onChange={handleChange}
+            required
+            disabled={isLoading}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            required
+            minLength="6"
+            disabled={isLoading}
+          />
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? 'Signing up...' : 'Sign Up'}
+          </button>
+        </form>
+        {message && (
+          <p className={`message ${message.includes('success') ? 'success' : 'error'}`}>
+            {message}
+          </p>
         )}
-        {message && <p className="message">{message}</p>}
-        {!user && (
-          <div className="auth-footer">
-            Already have an account? <Link to="/login">Login</Link>
-          </div>
-        )}
+        <div className="auth-footer">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
       </div>
     </div>
   );

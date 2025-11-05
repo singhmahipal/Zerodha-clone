@@ -22,8 +22,8 @@ module.exports.Signup = async (req, res, next) => {
         
         res.cookie('token', token, {
             withCredentials: true,
-            httpOnly: true,  // Changed to true for security
-            secure: process.env.NODE_ENV === 'production', // Use secure in production
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
             sameSite: 'lax',
             maxAge: 3 * 24 * 60 * 60 * 1000 // 3 days
         });
@@ -68,7 +68,7 @@ module.exports.Login = async (req, res, next) => {
         
         res.cookie('token', token, {
             withCredentials: true,
-            httpOnly: true,  // Changed to true for security
+            httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'lax',
             maxAge: 3 * 24 * 60 * 60 * 1000
@@ -87,5 +87,25 @@ module.exports.Login = async (req, res, next) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({message: 'Server error during login', success: false});
+    }
+}
+
+module.exports.Logout = async (req, res) => {
+    try {
+        res.cookie('token', '', {
+            withCredentials: true,
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 0 // Expire immediately
+        });
+        
+        res.status(200).json({
+            message: 'User logged out successfully',
+            success: true
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message: 'Server error during logout', success: false});
     }
 }

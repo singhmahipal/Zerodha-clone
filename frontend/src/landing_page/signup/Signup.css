@@ -91,3 +91,15 @@
 .signup-box .auth-footer a:hover {
   text-decoration: underline;
 }
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
