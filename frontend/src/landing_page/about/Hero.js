@@ -47,9 +47,9 @@ const Hero = () => {
           <p className="mb-3">
             And yet, we are always up to something new every day. Catch up on
             the latest updates on our blog or see what the media is{" "}
-            <Link to="" className="text-decoration-none">saying about us</Link> or learn more
+            <Link to="/about-us" className="text-decoration-none">saying about us</Link> or learn more
             about our business and product{" "}
-            <Link to='' className="text-decoration-none">philosophies.</Link>
+            <Link to='/philosophy' className="text-decoration-none">philosophies.</Link>
           </p>
         </div>
         <div className="col-2"></div>

@@ -32,10 +32,10 @@ const LeftSection = ({
           </div>
           <div>
             <a href={googlePlay} className="mr-5">
-              <img src="media/googlePlayBadge.svg" />
+              <img src="media/googlePlayBadge.svg" alt="google play badge" />
             </a>
             <a href={appStore} style={{ marginLeft: "50px" }}>
-              <img src="media/appstoreBadge.svg" />
+              <img src="media/appstoreBadge.svg" alt="app store badge" />
             </a>
           </div>
         </div>
