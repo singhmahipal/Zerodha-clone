@@ -31,7 +31,7 @@ const Team = () => {
           <p>
             Connect on <Link to="/">Homepage</Link> /{" "}
             <a href="https://tradingqna.com/u/nithin/summary">TradingQnA</a> /{" "}
-            <a to="https://twitter.com/Nithin0dha">Twitter</a>
+            <a href="https://twitter.com/Nithin0dha">Twitter</a>
           </p>
         </div>
       </div>
