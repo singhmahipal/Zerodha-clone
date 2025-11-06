@@ -16,7 +16,6 @@ const Login = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      console.log('Already authenticated, redirecting to:', DASHBOARD_URL);
       window.location.href = DASHBOARD_URL; 
     }
   }, [isAuthenticated]);
@@ -38,7 +37,6 @@ const Login = () => {
       setMessage(result.message);
       // Redirect to dashboard after successful login
       setTimeout(() => {
-        console.log('Redirecting to dashboard:', DASHBOARD_URL);
         window.location.href = DASHBOARD_URL; 
       }, 1000);
     } else {
