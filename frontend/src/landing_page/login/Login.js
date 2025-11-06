@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./Login.css";
 
@@ -11,7 +11,6 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   
   const { login, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
   // Redirect if already authenticated
   useEffect(() => {

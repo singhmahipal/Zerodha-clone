@@ -1,7 +1,6 @@
 import React from "react";
 
 const Footer = () => {
-  // define inline link style once and reuse it
   const linkStyle = {
     textDecoration: "none",
     color: "#6c757d",
@@ -21,37 +20,37 @@ const Footer = () => {
 
           <div className="col">
             <p>Account</p>
-            <a href="" style={linkStyle}>Open demat account</a><br />
-            <a href="" style={linkStyle}>Minor demat account</a><br />
-            <a href="" style={linkStyle}>NRI demat account</a><br />
-            <a href="" style={linkStyle}>Commodity</a><br />
-            <a href="" style={linkStyle}>Dematerialisation</a><br />
-            <a href="" style={linkStyle}>Fund transfer</a><br />
-            <a href="" style={linkStyle}>MTF</a><br />
-            <a href="" style={linkStyle}>Referral program</a><br />
+            <a href="/open-account" style={linkStyle}>Open demat account</a><br />
+            <a href="/minor-account" style={linkStyle}>Minor demat account</a><br />
+            <a href="/nri-account" style={linkStyle}>NRI demat account</a><br />
+            <a href="/commodity" style={linkStyle}>Commodity</a><br />
+            <a href="/dematerialisation" style={linkStyle}>Dematerialisation</a><br />
+            <a href="/fund-transfer" style={linkStyle}>Fund transfer</a><br />
+            <a href="/mtf" style={linkStyle}>MTF</a><br />
+            <a href="/referral" style={linkStyle}>Referral program</a><br />
           </div>
 
           <div className="col">
             <p>Support</p>
-            <a href="" style={linkStyle}>Contact us</a><br />
-            <a href="" style={linkStyle}>Support portal</a><br />
-            <a href="" style={linkStyle}>How to file a complaint?</a><br />
-            <a href="" style={linkStyle}>Status of your complaints</a><br />
-            <a href="" style={linkStyle}>Bulletin</a><br />
-            <a href="" style={linkStyle}>Circular</a><br />
-            <a href="" style={linkStyle}>Z-Connect blog</a><br />
-            <a href="" style={linkStyle}>Downloads</a><br />
+            <a href="/contact" style={linkStyle}>Contact us</a><br />
+            <a href="/support" style={linkStyle}>Support portal</a><br />
+            <a href="/complaint" style={linkStyle}>How to file a complaint?</a><br />
+            <a href="/complaint-status" style={linkStyle}>Status of your complaints</a><br />
+            <a href="/bulletin" style={linkStyle}>Bulletin</a><br />
+            <a href="/circular" style={linkStyle}>Circular</a><br />
+            <a href="/blog" style={linkStyle}>Z-Connect blog</a><br />
+            <a href="/downloads" style={linkStyle}>Downloads</a><br />
           </div>
 
           <div className="col">
             <p>Company</p>
-            <a href="" style={linkStyle}>About</a><br />
-            <a href="" style={linkStyle}>Philosophy</a><br />
-            <a href="" style={linkStyle}>Press & media</a><br />
-            <a href="" style={linkStyle}>Careers</a><br />
-            <a href="" style={linkStyle}>Zerodha Cares (CSR)</a><br />
-            <a href="" style={linkStyle}>Zerodha.tech</a><br />
-            <a href="" style={linkStyle}>Open source</a><br />
+            <a href="/about" style={linkStyle}>About</a><br />
+            <a href="/philosophy" style={linkStyle}>Philosophy</a><br />
+            <a href="/media" style={linkStyle}>Press & media</a><br />
+            <a href="/careers" style={linkStyle}>Careers</a><br />
+            <a href="/csr" style={linkStyle}>Zerodha Cares (CSR)</a><br />
+            <a href="/tech" style={linkStyle}>Zerodha.tech</a><br />
+            <a href="/open-source" style={linkStyle}>Open source</a><br />
           </div>
         </div>
 
@@ -64,22 +63,15 @@ const Footer = () => {
             Registration no.: INZ000038238 Registered Address: Zerodha Broking
             Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public
             School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India.
-            For any complaints pertaining to securities broking please write to
-            complaints@zerodha.com, for DP related to dp@zerodha.com. Please
-            ensure you carefully read the Risk Disclosure Document as prescribed
-            by SEBI | ICF
           </p>
 
           <p>
             Procedure to file a complaint on SEBI SCORES: Register on SCORES
             portal. Mandatory details for filing complaints on SCORES: Name,
-            PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
-            Communication, Speedy redressal of the grievances
+            PAN, Address, Mobile Number, E-mail ID.
           </p>
 
-          <p>
-            Smart Online Dispute Resolution | Grievances Redressal Mechanism
-          </p>
+          <p>Smart Online Dispute Resolution | Grievances Redressal Mechanism</p>
 
           <p>
             Investments in securities market are subject to market risks; read
@@ -87,13 +79,10 @@ const Footer = () => {
           </p>
 
           <p>
-            Attention investors: 1) Stock brokers can accept securities as
-            margins from clients only by way of pledge in the depository system
-            w.e.f September 01, 2020. 2) Update your e-mail and phone number
-            with your stock broker / depository participant and receive OTP
-            directly from depository on your e-mail and/or mobile number to
-            create pledge. 3) Check your securities / MF / bonds in the
-            consolidated account statement issued by NSDL/CDSL every month.
+            Attention investors: Update your e-mail and phone number with your
+            stock broker / depository participant. Check your securities / MF /
+            bonds in the consolidated account statement issued by NSDL/CDSL
+            every month.
           </p>
 
           <p>
@@ -102,35 +91,23 @@ const Footer = () => {
           </p>
 
           <p>
-            "Prevent unauthorised transactions in your account. Update your
+            Prevent unauthorised transactions in your account. Update your
             mobile numbers/email IDs with your stock brokers. Receive
             information of your transactions directly from Exchange on your
-            mobile/email at the end of the day. Issued in the interest of
-            investors. KYC is one time exercise while dealing in securities
-            markets - once KYC is done through a SEBI registered intermediary
-            (broker, DP, Mutual Fund etc.), you need not undergo the same
-            process again when you approach another intermediary." Dear
-            Investor, if you are subscribing to an IPO, there is no need to
-            issue a cheque. Please write the Bank account number and sign the
-            IPO application form to authorize your bank to make payment in case
-            of allotment. In case of non allotment the funds will remain in your
-            bank account. As a business we don't give stock tips, and have not
-            authorized anyone to trade on behalf of others. If you find anyone
-            claiming to be part of Zerodha and offering such services, please
-            create a ticket here.
+            mobile/email at the end of the day.
           </p>
         </div>
 
         <div className="my-3 text-center text-muted">
-          <a href="" style={linkStyle}>NSE</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>BSE</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>MCX</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>Terms & conditions</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>Policies & procedures</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>Privacy policy</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>Disclosure</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>For investor's attention</a>&nbsp;&nbsp;
-          <a href="" style={linkStyle}>Investor charter</a>&nbsp;&nbsp;
+          <a href="/nse" style={linkStyle}>NSE</a>&nbsp;&nbsp;
+          <a href="/bse" style={linkStyle}>BSE</a>&nbsp;&nbsp;
+          <a href="/mcx" style={linkStyle}>MCX</a>&nbsp;&nbsp;
+          <a href="/terms" style={linkStyle}>Terms & conditions</a>&nbsp;&nbsp;
+          <a href="/policies" style={linkStyle}>Policies & procedures</a>&nbsp;&nbsp;
+          <a href="/privacy" style={linkStyle}>Privacy policy</a>&nbsp;&nbsp;
+          <a href="/disclosure" style={linkStyle}>Disclosure</a>&nbsp;&nbsp;
+          <a href="/investor-attention" style={linkStyle}>For investor's attention</a>&nbsp;&nbsp;
+          <a href="/investor-charter" style={linkStyle}>Investor charter</a>&nbsp;&nbsp;
         </div>
       </div>
     </footer>

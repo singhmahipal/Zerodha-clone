@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080';
-const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || 'http://localhost:3001';
 
 const AuthContext = createContext();
 
