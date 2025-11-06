@@ -12,6 +12,7 @@ const Universe = () => {
         <div className="col-4 p-4 mt-5">
           <img
             src="media/smallcaseLogo.png"
+            alt="Smallcase logo"
             className="mb-3"
             style={{ width: "150px" }}
           />
@@ -20,6 +21,7 @@ const Universe = () => {
         <div className="col-4 p-4 mt-5">
           <img
             src="media/streakLogo.png"
+            alt="Streak logo"
             className="mb-3"
             style={{ width: "150px" }}
           />
@@ -28,6 +30,7 @@ const Universe = () => {
         <div className="col-4 p-4 mt-5">
           <img
             src="media/sensibullLogo.svg"
+            alt="Sensibull logo"
             className="mb-3"
             style={{ width: "150px" }}
           />
@@ -36,6 +39,7 @@ const Universe = () => {
         <div className="col-4 p-4 mt-5">
           <img
             src="media/zerodhafundhouse.png"
+            alt="Zerodha Fundhouse logo"
             className="mb-3"
             style={{ width: "150px" }}
           />
@@ -44,6 +48,7 @@ const Universe = () => {
         <div className="col-4 p-4 mt-5">
           <img
             src="media/goldenpiLogo.png"
+            alt="Goldenpi logo"
             className="mb-3"
             style={{ width: "150px" }}
           />
@@ -52,6 +57,7 @@ const Universe = () => {
         <div className="col-4 p-4 mt-5">
           <img
             src="media/dittoLogo.png"
+            alt="Ditto logo"
             className="mb-3"
             style={{ width: "150px" }}
           />
