@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // Check authentication status on mount
   useEffect(() => {
     checkAuth();
   }, []);
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const res = await axios.post(
-        `${process.env.BACKEND_URL}/auth/verify`,
+        `${process.env.REACT_APP_BACKEND_URL}/auth/verify`,
         {},
         { withCredentials: true }
       );
@@ -32,21 +33,64 @@ export const AuthProvider = ({ children }) => {
         setUser(res.data.user);
         setIsAuthenticated(true);
       } else {
-        // Redirect to login if not authenticated
-        window.location.href = `${process.env.FRONTEND_URL}/login`;
+        setUser(null);
+        setIsAuthenticated(false);
       }
     } catch (error) {
       console.error('Auth check failed:', error);
-      window.location.href = `${process.env.FRONTEND_URL}/login`;
+      setUser(null);
+      setIsAuthenticated(false);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const login = async (email, password) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/auth/login`,
+        { email, password },
+        { withCredentials: true }
+      );
+
+      if (res.data.success) {
+        await checkAuth(); // Refresh user data
+        return { success: true, message: res.data.message };
+      }
+      return { success: false, message: res.data.message };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Login failed'
+      };
+    }
+  };
+
+  const signup = async (email, username, password) => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/auth/signup`,
+        { email, username, password },
+        { withCredentials: true }
+      );
+
+      if (res.data.success) {
+        await checkAuth(); // Refresh user data
+        return { success: true, message: res.data.message };
+      }
+      return { success: false, message: res.data.message };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Signup failed'
+      };
     }
   };
 
   const logout = async () => {
     try {
       await axios.post(
-        `${process.env.BACKEND_URL}/auth/logout`,
+        `${process.env.REACT_APP_BACKEND_URL}/auth/logout`,
         {},
         { withCredentials: true }
       );
@@ -55,7 +99,6 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setUser(null);
       setIsAuthenticated(false);
-      window.location.href = `${process.env.FRONTEND_URL}`;
     }
   };
 
@@ -63,24 +106,11 @@ export const AuthProvider = ({ children }) => {
     user,
     isAuthenticated,
     loading,
+    login,
+    signup,
     logout,
     checkAuth
   };
-
-  if (loading) {
-    return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        fontSize: '1.5rem',
-        color: '#666'
-      }}>
-        Loading...
-      </div>
-    );
-  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

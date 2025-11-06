@@ -23,7 +23,7 @@ const Menu = () => {
     if (window.confirm('Are you sure you want to logout?')) {
       localStorage.clear();
       logout();
-      window.location.href = `${process.env.FRONTEND_URL}/login`;
+      window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/login`;
     }
   };
 

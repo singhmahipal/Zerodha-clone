@@ -1,6 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080';
+const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || 'http://localhost:3001';
+
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -23,8 +26,9 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
+      
       const res = await axios.post(
-        `${process.env.BACKEND_URL}/auth/verify`,
+        `${BACKEND_URL}/auth/verify`,
         {},
         { withCredentials: true }
       );
@@ -47,8 +51,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
+      
       const res = await axios.post(
-        `${process.env.BACKEND_URL}/auth/login`,
+        `${BACKEND_URL}/auth/login`,
         { email, password },
         { withCredentials: true }
       );
@@ -59,6 +64,7 @@ export const AuthProvider = ({ children }) => {
       }
       return { success: false, message: res.data.message };
     } catch (error) {
+      console.error('Login error:', error);
       return {
         success: false,
         message: error.response?.data?.message || 'Login failed'
@@ -68,8 +74,9 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (email, username, password) => {
     try {
+      
       const res = await axios.post(
-        `${process.env.BACKEND_URL}/auth/signup`,
+        `${BACKEND_URL}/auth/signup`,
         { email, username, password },
         { withCredentials: true }
       );
@@ -90,7 +97,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        `${process.env.BACKEND_URL}/auth/logout`,
+        `${BACKEND_URL}/auth/logout`,
         {},
         { withCredentials: true }
       );

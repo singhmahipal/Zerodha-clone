@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./Signup.css";
 
+const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || 'http://localhost:3001';
+
 const Signup = () => {
   const [form, setForm] = useState({ email: "", username: "", password: "" });
   const [message, setMessage] = useState("");
@@ -14,7 +16,8 @@ const Signup = () => {
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      window.location.href = `${process.env.DASHBOARD_URL}`; // Dashboard URL
+      console.log('Already authenticated, redirecting to:', DASHBOARD_URL);
+      window.location.href = DASHBOARD_URL;
     }
   }, [isAuthenticated]);
 
@@ -27,13 +30,16 @@ const Signup = () => {
     setIsLoading(true);
     setMessage("");
     
+    console.log('Submitting signup form...');
     const result = await signup(form.email, form.username, form.password);
+    console.log('Signup result:', result);
     
     if (result.success) {
       setMessage(result.message);
       // Redirect to dashboard after successful signup
       setTimeout(() => {
-        window.location.href = `${process.env.DASHBOARD_URL}`; // Dashboard URL
+        console.log('Redirecting to dashboard:', DASHBOARD_URL);
+        window.location.href = DASHBOARD_URL;
       }, 1000);
     } else {
       setMessage(result.message);
