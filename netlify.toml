@@ -1,7 +1,25 @@
-[build]
+﻿[build]
   base = "frontend"
   publish = "frontend/build"
   command = "npm run build"
+
+[[redirects]]
+  from = "/login"
+  to = "https://your-backend-url.onrender.com/login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/signup"
+  to = "https://your-backend-url.onrender.com/signup"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.onrender.com/api/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
