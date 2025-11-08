@@ -226,4 +226,4 @@ This project is licensed under the **ISC License**.
 <p align="center">
   Made with 💙 using <b>MERN Stack</b> | Hosted on <b>Netlify</b>
 </p>
-```
+
