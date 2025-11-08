@@ -1,5 +1,4 @@
-```markdown
-<h1 align="center">🚀 Full Stack Zerodha Application</h1>
+<h1 align="center">🚀 Full Stack Zerodha Application</h1> 
 
 <p align="center">
   <b>A modern MERN stack project</b> integrating a secure backend, a responsive frontend, and a feature-rich dashboard.
@@ -19,7 +18,7 @@
 
 ## 🧩 Overview
 
-This project is a full-stack **Dashboard Web Application** that combines a **public-facing frontend**, a **secure backend API**, and a **data visualization dashboard** for authenticated users.
+This project is a full-stack **Zeroha Web Application** that combines a **public-facing frontend**, a **secure backend API**, and a **data visualization dashboard** for authenticated users.
 
 ### ✨ Key Highlights
 - 🔐 **User Authentication** with Passport.js + JWT  
@@ -33,14 +32,12 @@ This project is a full-stack **Dashboard Web Application** that combines a **pub
 ## 📁 Project Structure
 
 ```
-
 root/
 ├── backend/        # Express.js API + MongoDB + Authentication
 ├── frontend/       # React frontend app (public SPA)
 ├── dashboard/      # React dashboard (authenticated users)
 └── README.md
-
-````
+```
 
 ---
 
@@ -62,7 +59,7 @@ root/
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
-````
+```
 
 ### 2️⃣ Install Dependencies
 
@@ -188,12 +185,15 @@ REACT_APP_API_URL=https://your-backend-domain.com/api
 | `npm test --prefix backend`       | Run backend tests             |
 | `npm run build --prefix frontend` | Build frontend for production |
 
+---
 
-```html
+## 📊 Dashboard Preview
+
+> *(Optional: Add your screenshot or dashboard demo image here)*
+
 <p align="center">
   <img src="https://via.placeholder.com/800x400?text=Dashboard+Preview" alt="Dashboard Preview" />
 </p>
-```
 
 ---
 
@@ -218,7 +218,8 @@ This project is licensed under the **ISC License**.
 ## 👨‍💻 Author
 
 **Mahipal Singh**
-📎 [GitHub](https://github.com/singhmahipal)   •   💼 [LinkedIn](https://www.linkedin.com/in/mahipalsingh7)
+<br/>
+📎 [GitHub](https://github.com/singhmahipal) &nbsp; • &nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/mahipalsingh7)
 
 ---
 
@@ -226,5 +227,3 @@ This project is licensed under the **ISC License**.
   Made with 💙 using <b>MERN Stack</b> | Hosted on <b>Netlify</b>
 </p>
 ```
-
----
