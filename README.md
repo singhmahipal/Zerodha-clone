@@ -219,11 +219,12 @@ This project is licensed under the **ISC License**.
 
 **Mahipal Singh**
 <br/>
-📎 [GitHub](https://github.com/singhmahipal) &nbsp; • &nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/mahipalsingh7)
+📎 [GitHub](https://github.com/singhmahipal) &nbsp; • &nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/mahipalsingh18)
 
 ---
 
 <p align="center">
   Made with 💙 using <b>MERN Stack</b> | Hosted on <b>Netlify</b>
 </p>
+
 
